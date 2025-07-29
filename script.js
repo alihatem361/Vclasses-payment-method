@@ -1,3 +1,18 @@
+// Dark Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+const currentTheme = localStorage.getItem("theme") || "light";
+
+// Set initial theme
+document.documentElement.setAttribute("data-theme", currentTheme);
+
+themeToggle.addEventListener("click", function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+
 // Add interactivity for payment methods
 document.querySelectorAll(".payment-method").forEach((method) => {
   method.addEventListener("click", function () {
