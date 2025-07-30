@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Almarai", system-ui, sans-serif;
+  font-family: var(--font-family-base);
   background-color: var(--bg-primary);
   color: var(--text-primary-color);
   min-height: 100vh;
@@ -15,15 +15,19 @@ body {
 
 /* Custom CSS Variables */
 :root {
-  --dark-blue: #193142;
-  --brand-orange: #e94e1b;
-  --text-primary: #060d11;
-  --red-danger: #FF3B30;
-  --orange-light: #fef1e8;
-  --neutral-500: #2f2f2f;
-  --orange-bg: rgba(233, 78, 27, 0.1);
-  --orange-select: rgba(233, 78, 27, 0.06);
-  
+  --main-color: #e94e1b;
+  --main-color-secondary: hsl(from var(--main-color) h 80% 80%);
+  --main-color-tertiary: hsl(from var(--main-color) h 80% 95%);
+  --main-color-bg: rgba(233, 78, 27, 0.1);
+  --main-color-select: rgba(233, 78, 27, 0.06);
+  --main-color-light: #fef1e8;
+
+  --color-dark-primary: #193142;
+  --color-text-primary: #060d11;
+  --color-red-danger: #ff3b30;
+  --color-neutral-500: #2f2f2f;
+  --font-family-base: "Almarai", -apple-system, Roboto, Helvetica, sans-serif;
+
   /* Light mode colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
@@ -36,15 +40,18 @@ body {
 
 /* Dark mode variables */
 [data-theme="dark"] {
-  --dark-blue: #193142;
-  --brand-orange: #e94e1b;
-  --text-primary: #060d11;
-  --red-danger: #ff3b30;
-  --orange-light: #fef1e8;
-  --neutral-500: #2f2f2f;
-  --orange-bg: rgba(233, 78, 27, 0.1);
-  --orange-select: rgba(233, 78, 27, 0.06);
-  
+  --main-color: #e94e1b;
+  --main-color-secondary: hsl(from var(--main-color) h 80% 80%);
+  --main-color-tertiary: hsl(from var(--main-color) h 80% 95%);
+  --main-color-bg: rgba(233, 78, 27, 0.1);
+  --main-color-select: rgba(233, 78, 27, 0.06);
+  --main-color-light: #fef1e8;
+
+  --color-dark-primary: #193142;
+  --color-text-primary: #060d11;
+  --color-red-danger: #ff3b30;
+  --color-neutral-500: #2f2f2f;
+
   /* Dark mode specific colors */
   --bg-primary: #1a1a1a;
   --bg-secondary: #2d2d2d;
@@ -170,7 +177,7 @@ body {
 
 .user-name {
   color: var(--text-primary-color);
-  font-family: "Almarai", sans-serif;
+  font-family: var(--font-family-base);
   font-size: 18px;
   font-weight: 700;
   line-height: 160%;
@@ -186,7 +193,6 @@ body {
   border-radius: 999px;
   background: var(--bg-secondary);
   transition: background-color 0.3s ease;
-}
 }
 
 .avatar-text {
@@ -207,7 +213,7 @@ body {
 .header-icon {
   width: 24px;
   height: 24px;
-  color: var(--brand-orange);
+  color: var(--main-color);
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
@@ -358,7 +364,7 @@ body {
   gap: 8px;
   width: 100%;
   border-radius: 8px;
-  background: var(--orange-light);
+  background: var(--main-color-light);
 }
 
 @media (min-width: 768px) {
@@ -481,12 +487,12 @@ body {
 }
 
 .payment-method.selected {
-  border-color: var(--brand-orange);
-  background: var(--orange-select);
+  border-color: var(--main-color);
+  background: var(--main-color-select);
 }
 
 .payment-method:hover {
-  border-color: var(--brand-orange);
+  border-color: var(--main-color);
 }
 
 /* Order Summary Section */
@@ -647,12 +653,12 @@ body {
   align-items: center;
   gap: 8px;
   border-radius: 50px;
-  background: var(--orange-bg);
+  background: var(--main-color-bg);
   flex-shrink: 0;
 }
 
 .tag-text {
-  color: var(--brand-orange);
+  color: var(--main-color);
   text-align: center;
   font-size: 9px;
   font-weight: 700;
@@ -723,7 +729,7 @@ body {
 
 .price-highlight {
   font-weight: 700;
-  color: var(--brand-orange);
+  color: var(--main-color);
 }
 
 .course-actions {
@@ -762,7 +768,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background: var(--red-danger);
+  background: var(--color-red-danger);
   border: none;
   cursor: pointer;
   gap: 3px;
@@ -983,7 +989,7 @@ body {
   align-items: center;
   gap: 8px;
   border-radius: 4px;
-  background: var(--brand-orange);
+  background: var(--main-color);
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -1106,7 +1112,7 @@ body {
 .heart-icon {
   width: 18px;
   height: 18px;
-  color: var(--brand-orange);
+  color: var(--main-color);
 }
 
 .trash-icon {
@@ -1165,5 +1171,6 @@ body {
 
 /* Smooth transitions for theme changes */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
 }
